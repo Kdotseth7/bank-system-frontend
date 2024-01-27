@@ -7,7 +7,7 @@ const Header = () => {
         <AppBar position="sticky" sx={{ backgroundColor: 'deeppink' }} className={header.appBar}>
             <Link to="/" className={header.header}>
                 <Typography variant="h3" component="h1" fontFamily="Roboto">
-                    Bank of Pomelo
+                    React Bank System
                 </Typography>
             </Link>
         </AppBar>

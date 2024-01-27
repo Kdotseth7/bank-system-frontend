@@ -3,7 +3,7 @@ import Transactions from '../transactions/Transactions';
 import Payments from '../payments/Payments';
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
-import pomeloLogo from "../../assets/pomelo_logo.png"
+import bankLogo from "../../assets/bank_logo.png"
 import homeComponent from "./HomeComponent.module.scss";
 
 const Home = () => {
@@ -16,22 +16,20 @@ const Home = () => {
                         <CardMedia
                             component="img"
                             height="400"
-                            image={pomeloLogo}
-                            alt="pomelo image"
+                            image={bankLogo}
+                            alt="bank image"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Pomelo Coding Exercise!
-                            </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Step into the future of finance with Pomelo! 🚀
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                I am Kushagra Seth! I am a Computer Science Masters Student graduating in December 2023.
+                                Step into the future of finance with React Bank System! 🚀
                             </Typography>
                             <br/>
                             <Typography variant="body2" color="text.secondary">
-                                This is my humple attempt at developing a simple Pomelo Credit Card App for the coding exercise.
+                                I am Kushagra Seth! I am a Computer Science Masters Student graduating in December 2023 from UC Santa Cruz.
+                            </Typography>
+                            <br/>
+                            <Typography variant="body2" color="text.secondary">
+                                This is my humble attempt at developing a simple Bank System App.
                             </Typography>
                             <br/>
                             <Typography variant="body2" color="text.secondary">
@@ -43,12 +41,15 @@ const Home = () => {
                             <Typography variant="body2" color="text.secondary">
                                 Backend - NodeJS and ExpressJS
                             </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Database - PostgreSQL
+                            </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions className={homeComponent.appButton}>
                         <Link to="/dashboard">
                             <Button color="secondary" variant="contained">
-                                POMELO CREDIT CARD APP
+                                CREATE ACCOUNT
                             </Button>
                         </Link>
                     </CardActions>

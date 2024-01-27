@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography} from "@mui/material";
-import pomelo from "../../assets/pomelo.jpeg";
+import bank from "../../assets/bank.png";
 import {Link} from "react-router-dom";
 import dashboardComponent from "./DashboardComponent.module.scss";
 
@@ -13,7 +13,7 @@ const Dashboard = () => {
                         <CardMedia
                             component="img"
                             height="300"
-                            image={pomelo}
+                            image={bank}
                             alt="pomelo image"
                         />
                         <CardContent>
