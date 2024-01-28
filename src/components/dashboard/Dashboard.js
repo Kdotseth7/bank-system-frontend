@@ -4,7 +4,8 @@ import bank from "../../assets/bank.png";
 import {Link} from "react-router-dom";
 import dashboardComponent from "./DashboardComponent.module.scss";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    console.log(props);
     return (
         <Grid container className={dashboardComponent.container}>
             <Grid item>
@@ -14,18 +15,23 @@ const Dashboard = () => {
                             component="img"
                             height="300"
                             image={bank}
-                            alt="pomelo image"
+                            alt="bank image"
                         />
                         <CardContent>
                             <Grid container item flexDirection="column" className={dashboardComponent.infoContainer}>
                                 <Grid item>
                                     <Typography>
-                                        Available Credit: $1000
+                                        Account Id: {props.accountDetails.account_id}
                                     </Typography>
                                 </Grid>
                                 <Grid item>
                                     <Typography>
-                                        Payable Balance: $0
+                                        Balance: ${props.accountDetails.balance}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography>
+                                        Transaction Totals: ${props.accountDetails.transaction_totals}
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -36,14 +42,14 @@ const Dashboard = () => {
                             <Grid item className={dashboardComponent.options}>
                                 <Link to="/transactions">
                                     <Button color="secondary" variant="contained">
-                                        Transactions
+                                        Transaction History
                                     </Button>
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link to="/payments">
+                                <Link to="/transfers">
                                     <Button color="secondary" variant="contained">
-                                        Payments
+                                        Transfers
                                     </Button>
                                 </Link>
                             </Grid>

@@ -47,7 +47,7 @@ const Home = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions className={homeComponent.appButton}>
-                        <Link to="/dashboard">
+                        <Link to="/create_account">
                             <Button color="secondary" variant="contained">
                                 CREATE ACCOUNT
                             </Button>

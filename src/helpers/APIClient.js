@@ -15,8 +15,21 @@ class APIClient {
         }
     }
 
-    async getPlayerInfo(playerId) {
-        const requestUrl = `${this.baseUrl}/players/${playerId}`;
+    async createAccount(accountId) {
+        const requestUrl = `${this.baseUrl}/accounts/create_account?account_id=${encodeURIComponent(accountId)}`;
+        const request = new Request(requestUrl);
+        const requestParams = {
+            method: 'POST',
+            mode: this.mode,
+            cache: 'default'
+        };
+        const response = await this.fetchWrapper(request, requestParams);
+        const responseData = await response.json();
+        return responseData;
+    }
+
+    async getAccountDetails(accountId) {
+        const requestUrl = `${this.baseUrl}/accounts/${accountId}`;
         const request = new Request(requestUrl);
         const requestParams = {
             method: 'GET',
@@ -28,3 +41,5 @@ class APIClient {
         return responseData;
     }
 }
+
+export default APIClient;

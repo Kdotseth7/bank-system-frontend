@@ -1,3 +1,3 @@
 export default function getBaseUrl() {
-    return 'http://localhost:3000';
+    return 'http://localhost:3002';
 }
