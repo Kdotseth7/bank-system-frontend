@@ -107,14 +107,17 @@ const Dashboard = (props) => {
                             />
                         </CardActionArea>
                         <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                                UID: {props.accountDetails.account_id}
+                            <Typography gutterBottom variant="h5" component="div">
+                                Account Details
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Balance: ${props.accountDetails.balance}
+                                <b>UID:</b> {props.accountDetails.account_id}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Transaction Totals: ${props.accountDetails.transaction_totals}
+                                <b>Balance:</b> ${props.accountDetails.balance}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                <b>Txn Totals:</b> ${props.accountDetails.transaction_totals}
                             </Typography>
                         </CardContent>
                     </Card>
@@ -123,6 +126,12 @@ const Dashboard = (props) => {
                 <Grid item>
                     <Card sx={{ maxWidth: 500 }} raised={true} className={dashboardComponent.card}>
                         <Grid item flexDirection="column">
+                            <Grid item>
+                                <Typography variant="h5" component="div">
+                                    Deposit and Pay Money
+                                </Typography>
+                            </Grid>
+                            <br/>
                             <Grid item>
                                 <TextField
                                     fullWidth
@@ -133,41 +142,41 @@ const Dashboard = (props) => {
                                     onChange={event => setAmount(event.target.value)}
                                 />
                             </Grid>
-                        </Grid>
-                        <br/>
-                        <Grid container item flexDirection="row">
-                            <Grid item marginRight="4px">
-                                <Button color="secondary" variant="contained" onClick={handleDepositMoney}>
-                                    DEPOSIT MONEY
-                                </Button>
                             </Grid>
-                            <Grid item>
-                                <Button color="secondary" variant="contained" onClick={handlePayMoney}>
-                                    PAY MONEY
-                                </Button>
+                            <br/>
+                            <Grid container item flexDirection="row">
+                                <Grid item marginRight="4px">
+                                    <Button color="secondary" variant="contained" onClick={handleDepositMoney}>
+                                        DEPOSIT MONEY
+                                    </Button>
+                                </Grid>
+                                <Grid item>
+                                    <Button color="secondary" variant="contained" onClick={handlePayMoney}>
+                                        PAY MONEY
+                                    </Button>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                        </Card>
+                    </Grid>
+                </Grid>
+                {/* Transactions History */}
+                <Grid item>
+                    <Card sx={{ maxWidth: 500 }} raised={true} className={dashboardComponent.card}>
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        initialState={{
+                        pagination: {
+                            paginationModel: {
+                            pageSize: 5,
+                            },
+                        },
+                        }}
+                        pageSizeOptions={[5]}
+                        disableRowSelectionOnClick
+                    />
                     </Card>
                 </Grid>
-            </Grid>
-            {/* Transactions History */}
-            <Grid item>
-                <Card sx={{ maxWidth: 500 }} raised={true} className={dashboardComponent.card}>
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    initialState={{
-                    pagination: {
-                        paginationModel: {
-                        pageSize: 5,
-                        },
-                    },
-                    }}
-                    pageSizeOptions={[5]}
-                    disableRowSelectionOnClick
-                />
-                </Card>
-            </Grid>
             {/* Transfers */}
             <Grid item>
                 <Grid item>
