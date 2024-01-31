@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import Transactions from '../transactions/Transactions';
-import Payments from '../payments/Payments';
+import React from 'react';
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 import bankLogo from "../../assets/bank_logo.png"

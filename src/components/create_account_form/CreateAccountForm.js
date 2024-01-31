@@ -6,11 +6,12 @@ import createAccountFormComponent from "./CreateAccountFormComponent.module.scss
 import APIClient from "../../helpers/APIClient";
 
 const CreateAccountForm = (props) => {
-  const [accountId, setAccountId] = useState("");
-  const navigate = useNavigate();
+    const [accountId, setAccountId] = useState("");
 
-  const handleCreateAccount = async (event) => {
-    // event.preventDefault();
+    const navigate = useNavigate();
+
+    const handleCreateAccount = async (event) => {
+    event.preventDefault();
     const apiClient = new APIClient();
     const response = await apiClient.createAccount(accountId);
     if (response[0].account_id === accountId) {
@@ -18,53 +19,53 @@ const CreateAccountForm = (props) => {
         props.setAccountDetails(response[0]);
     }
     navigate(`/dashboard/${accountId}`);
-  };
+    };
 
-  return (
-    <Grid container className={createAccountFormComponent.container}>
-        <Grid item>
-            <Card sx={{ minWidth: 300 }} raised={true} className={createAccountFormComponent.card}>
-                <CardContent className={createAccountFormComponent.infoContainer}>
-                    <Grid>
-                        <Grid item className={createAccountFormComponent.lockIcon}>
-                            <LockOutlinedIcon />
+    return (
+        <Grid container className={createAccountFormComponent.container}>
+            <Grid item>
+                <Card sx={{ minWidth: 300 }} raised={true} className={createAccountFormComponent.card}>
+                    <CardContent className={createAccountFormComponent.infoContainer}>
+                        <Grid>
+                            <Grid item className={createAccountFormComponent.lockIcon}>
+                                <LockOutlinedIcon />
+                            </Grid>
+                            <br/>
+                            <Grid item>
+                                <Typography component="h3" variant="h5">
+                                    Enter your account id
+                                </Typography>
+                            </Grid>
+                            <br/>
+                            <Grid item className={createAccountFormComponent.accountField}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="account_id"
+                                    label="Account Id"
+                                    name="account_id"
+                                    autoComplete="Account Id..."
+                                    onChange={event => setAccountId(event.target.value)}
+                                />
+                            </Grid>
                         </Grid>
-                        <br/>
-                        <Grid item>
-                            <Typography component="h3" variant="h5">
-                                Enter your account id
-                            </Typography>
-                        </Grid>
-                        <br/>
-                        <Grid item className={createAccountFormComponent.accountField}>
-                            <TextField
-                                required
-                                fullWidth
-                                id="account_id"
-                                label="Account Id"
-                                name="account_id"
-                                autoComplete="Account Id..."
-                                onChange={event => setAccountId(event.target.value)}
-                            />
-                        </Grid>
-                    </Grid>
-                </CardContent>
-                <CardActions>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="secondary"
-                        className={createAccountFormComponent.submit}
-                        onClick={handleCreateAccount}
-                    >
-                        Create Account
-                    </Button>
-                </CardActions>
-            </Card>
+                    </CardContent>
+                    <CardActions>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="secondary"
+                            className={createAccountFormComponent.submit}
+                            onClick={handleCreateAccount}
+                        >
+                            Create Account
+                        </Button>
+                    </CardActions>
+                </Card>
+            </Grid>
         </Grid>
-    </Grid>
-  );
+    );
 };
 
 export default CreateAccountForm;
